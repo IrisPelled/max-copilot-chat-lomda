@@ -259,3 +259,6 @@
 .side-end{font:inherit;width:100%;display:flex;align-items:center;gap:10px;background:none;border:none;color:#fff;cursor:pointer;padding:8px 10px;border-radius:10px;text-align:right}
 .side-end:hover{background:rgba(255,255,255,.1)}
 .side-end .side-step-num svg{width:14px;height:14px}
+
+/* nav fully reachable: sidebar never taller than viewport */
+.sidebar{max-height:100vh;max-height:100dvh;overflow-y:auto;-webkit-overflow-scrolling:touch}
