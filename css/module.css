@@ -247,3 +247,15 @@
 .mini-carousel-slide .screenshot-frame.pin-shot{height:auto;display:block}
 .mini-carousel-slide .screenshot-frame.pin-shot img{width:100%;height:auto}
 .hotspot.wide{background-size:100% 100%;width:44%;aspect-ratio:4.2;transform:translate(-50%,-50%) scale(1.15)}
+/* fixes 24.10 */
+.eyebrow-letter{white-space:pre}
+.step-who,.section-label,.step-number,.part-label,.concept-eyebrow,.side-progress-label,.nav-group-label{letter-spacing:0;word-spacing:normal}
+.sidebar{padding-bottom:8rem}
+.topic-grid{grid-template-columns:repeat(3,1fr)}
+@media (max-width:760px){.topic-grid{grid-template-columns:repeat(2,1fr)}}
+.intro-cases{font-size:1.05rem;margin:0 0 .6rem}
+.sort-why{display:block;width:100%;font-size:.88rem;color:#555;order:3}
+.new-chat{border:3px solid #FF5BC0;background:#FFD6EE}
+.side-end{font:inherit;width:100%;display:flex;align-items:center;gap:10px;background:none;border:none;color:#fff;cursor:pointer;padding:8px 10px;border-radius:10px;text-align:right}
+.side-end:hover{background:rgba(255,255,255,.1)}
+.side-end .side-step-num svg{width:14px;height:14px}
