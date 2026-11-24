@@ -141,3 +141,38 @@ body, .app {
 .settings-icon { background: transparent; width: 38px; }
 .settings-icon .task-n { font-family: 'Rubik', sans-serif; font-weight: 900; font-size: 1.7rem; color: transparent; -webkit-text-stroke: 1.6px var(--strong-pink); line-height: 1; }
 .track-lab { color: var(--strong-pink); }
+
+/* ===== הנחיה ממוספרת בעמוד המסלולים ===== */
+.flow-label { display: flex; align-items: center; gap: 10px; font-family: 'Rubik', sans-serif; font-weight: 800; font-size: 1.05rem; color: var(--header-blue); margin: 0 0 0.8rem; }
+.flow-n { width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: var(--header-blue); color: #fff; font-size: 0.9rem; }
+.flow-2 { margin-top: 1.6rem; }
+.track-cta { margin-top: 0.2rem; align-self: stretch; text-align: center; padding: 6px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; border: 1.5px dashed color-mix(in srgb, var(--c) 70%, #1a295b); color: var(--header-blue); transition: background 0.2s; }
+.track-cta::after { content: 'לחצו לבחירת המסלול'; }
+.track-card:hover .track-cta { background: color-mix(in srgb, var(--c) 14%, #fff); }
+.track-card.active .track-cta { background: var(--c); border-style: solid; border-color: var(--c); }
+.track-card.active .track-cta::after { content: 'זה המסלול שלכם ✓'; }
+.track-card:not(.active) { opacity: 0.82; }
+.track-card:not(.active):hover { opacity: 1; }
+@media (max-width: 860px) { .track-cta { display: none; } }
+
+/* ===== רמות המשימה ברצף, אחת אחרי השנייה ===== */
+.lv-ladder { position: relative; margin: 0.9rem 0 0.4rem; padding-right: 44px; }
+.lv-ladder::before { content: ''; position: absolute; top: 14px; bottom: 30px; right: 14px; border-right: 2px dashed #C9CFE2; }
+.lv-ladder .lv-panel { display: block; position: relative; animation: none; margin-bottom: 1.1rem; }
+.lv-ladder .lv-panel:last-child { margin-bottom: 0; }
+.lv-head { display: flex; align-items: center; gap: 8px; margin-bottom: 0.15rem; }
+.lv-head .lv-num { position: absolute; right: -44px; top: 0; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; background: #fff; color: var(--header-blue); border: 2px solid var(--amber); box-shadow: 0 0 0 4px var(--page-bg, #F8F9FC); }
+.lv-ladder .lv-panel:nth-child(2) .lv-num { border-color: #749FE3; }
+.lv-ladder .lv-panel:nth-child(3) .lv-num { border-color: #8B5CE0; }
+.lv-ladder .lv-panel:nth-child(4) .lv-num { border-color: #C55CD0; }
+.lv-ladder .lv-panel:nth-child(5) .lv-num { border-color: var(--strong-pink); background: var(--strong-pink); color: #fff; }
+.lv-level { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; color: var(--strong-pink); }
+.lv-head strong { font-family: 'Rubik', sans-serif; font-size: 1rem; color: var(--header-blue); }
+.lv-ladder .lv-desc { font-weight: 500; color: #4a5370; margin: 0 0 0.3rem; font-size: 0.92rem; }
+.lv-ladder .prompt-block { margin-top: 0.3rem; }
+@media (max-width: 640px) {
+  .lv-ladder { padding-right: 36px; }
+  .lv-head .lv-num { right: -36px; width: 26px; height: 26px; }
+  .lv-ladder::before { right: 12px; }
+}
+.track-panel .settings-item.open .settings-item-panel { max-height: 5000px; }
