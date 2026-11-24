@@ -15,3 +15,5 @@ function spinTool(){const rows=[...document.querySelectorAll('.tool-row')];let i
 function hwCount(){const all=document.querySelectorAll('.hw-item').length,c=document.querySelectorAll('.hw-item.checked').length;document.getElementById('hwDone').classList.toggle('on',c===all);}
 function glFilter(v){v=v.trim();let n=0;document.querySelectorAll('.gl-card').forEach(c=>{const h=!v||c.dataset.term.includes(v);c.classList.toggle('hidden',!h);if(h)n++;});document.getElementById('glEmpty').classList.toggle('on',n===0);}
 document.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('.flip-card,.concept-card')){e.preventDefault();e.target.click();}});
+/* בחירת מסלול בעמוד המשימות */
+function pickTrack(b,i){const st=b.closest('.step');st.querySelectorAll('.track-card').forEach((c,k)=>{c.classList.toggle('active',k===i);c.setAttribute('aria-pressed',k===i);});st.querySelectorAll('.track-panel').forEach((p,k)=>p.classList.toggle('active',k===i));st.querySelectorAll('.track-panel.active .reveal').forEach(r=>r.classList.add('visible'));if(window.lucide)lucide.createIcons();}

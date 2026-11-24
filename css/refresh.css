@@ -1,0 +1,143 @@
+/* ===== ריענון עיצוב: רקע נקודות, סיידבר מסודר, מפרידים עדינים, תיבות בגוונים ===== */
+:root {
+  --page-bg: #F4F5F9;
+  --dot: rgba(26,41,91,0.16);
+  --soft-line: rgba(26,41,91,0.12);
+  --tint-teal: #EEF9FA;
+  --tint-lilac: #F4F2FC;
+  --tint-pink: #FDF1F8;
+  --tint-navy: #EEF1F8;
+}
+
+/* רקע גריד נקודות אפור עדין */
+body, .app {
+  background-color: var(--page-bg);
+  background-image: radial-gradient(circle, var(--dot) 1.1px, transparent 1.5px);
+  background-size: 22px 22px;
+  background-attachment: fixed;
+}
+.main-content { padding-top: 2.4rem; }
+
+/* כותרת שלב מרחפת על הנקודות בלי קו כבד */
+.step-header { border-bottom: none; padding-bottom: 0.4rem; margin-bottom: 1.6rem; }
+.step-desc { color: rgba(26,41,91,0.72); }
+
+/* ===== סיידבר: כחול כהה, מסודר וקומפקטי ===== */
+.sidebar { width: 236px; padding: 1.3rem 1rem 1.5rem 0.9rem; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.18) transparent; }
+.side-progress-label { margin-bottom: 1.1rem; font-size: 0.74rem; color: rgba(255,255,255,0.75); }
+.nav-group { margin-bottom: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); }
+.nav-group:first-of-type { border-top: none; padding-top: 0; }
+.nav-group-label { font-size: 0.7rem; letter-spacing: 0.06em; color: rgba(255,255,255,0.55); margin-bottom: 0.35rem; }
+.nav-group-label [data-lucide] { width: 14px; height: 14px; }
+.side-steps { gap: 2px; }
+.side-step { padding: 6px 8px; font-size: 0.82rem; border-radius: 9px; gap: 9px; }
+.side-step:hover { transform: none; background: rgba(255,255,255,0.07); }
+.side-step.active { box-shadow: none; background: rgba(92,225,230,0.14); }
+.side-step-num { width: 22px; height: 22px; font-size: 0.66rem; }
+.side-step-num::after { width: 2px; height: 10px; opacity: 0.6; }
+.side-end { padding: 6px 8px !important; font-size: 0.82rem !important; }
+
+/* ===== אוויר ומפרידים בין תיבות ===== */
+.step .reveal + .reveal { margin-top: 0.6rem; }
+.step .reveal + .reveal::before {
+  content: ''; display: block; margin: 0 auto 0.9rem; width: 170px; height: 46px;
+  background: no-repeat center / contain;
+  opacity: 0.85;
+}
+/* ארבעה סוגי קווים מקווקווים מתחלפים, ברוח הדוגמה */
+.step .reveal + .reveal:nth-of-type(4n+1)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 46' fill='none' stroke='%239AA3B8' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M8 30 C40 4, 70 44, 100 22 S150 8, 160 24' stroke-dasharray='5 6'/%3E%3Cpath d='M152 17 L161 25 L150 29'/%3E%3C/svg%3E");
+}
+.step .reveal + .reveal:nth-of-type(4n+2)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 46' fill='none' stroke='%239AA3B8' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M12 34 Q85 -4 158 34' stroke-dasharray='0.1 7'/%3E%3C/svg%3E");
+}
+.step .reveal + .reveal:nth-of-type(4n+3)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 46' fill='none' stroke='%23B7A6E6' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M8 32 C40 32, 60 6, 82 14 C98 20, 88 36, 76 30 C66 24, 90 8, 118 18 C138 25, 150 26, 162 20' stroke-dasharray='4 5'/%3E%3C/svg%3E");
+}
+.step .reveal + .reveal:nth-of-type(4n)::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 46' fill='none' stroke='%2393C9CC' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M10 23 C30 10, 45 36, 65 23 S100 10, 120 23 S150 36, 160 23' stroke-dasharray='3 5'/%3E%3C/svg%3E");
+}
+
+/* ===== תיבות בגוונים עדינים במקום לבן בכל מקום ===== */
+.step-card { border: 1px solid var(--soft-line); box-shadow: 0 2px 10px rgba(26,41,91,0.04); }
+.step-card.user   { background: var(--tint-pink); }
+.step-card.claude { background: var(--tint-navy); border-right-color: rgba(26,41,91,0.55); }
+.step-card.info   { background: var(--tint-teal); }
+.callout { border-radius: 14px; }
+.settings-item { border: 1px solid var(--soft-line); box-shadow: 0 2px 10px rgba(26,41,91,0.04); }
+.settings-item-head { background: var(--tint-lilac); }
+.settings-item.open .settings-item-head { background: #ECE8FA; }
+.settings-item-head:hover { background: #ECE8FA; }
+.flip-front { background: #fff; border-color: rgba(92,225,230,0.45); }
+.flip-card:nth-child(3n+2) .flip-front { background: var(--tint-lilac); border-color: rgba(139,92,224,0.3); }
+.flip-card:nth-child(3n+3) .flip-front { background: var(--tint-pink); border-color: rgba(255,91,192,0.3); }
+.quiz-card, .sort-game { border: 1px solid var(--soft-line); background: var(--tint-lilac); box-shadow: 0 2px 12px rgba(26,41,91,0.05); }
+.quiz-opt { background: #fff; border: 1.5px solid var(--soft-line); }
+.piece-btn { border: 1.5px solid rgba(26,41,91,0.22); }
+.topic-out { background: var(--tint-teal); border-color: rgba(26,41,91,0.2); }
+.prompt-block { box-shadow: 0 6px 18px rgba(26,41,91,0.12); }
+
+/* ===== בורר מסלולים ===== */
+.track-picker { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0.2rem 0 0.4rem; }
+.track-card {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 0.7rem;
+  text-align: right; cursor: pointer; padding: 1.15rem 1.15rem 1rem; border-radius: 18px;
+  background: rgba(255,255,255,0.78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid var(--soft-line); box-shadow: 0 4px 18px rgba(26,41,91,0.06);
+  transition: transform 0.25s var(--spring), box-shadow 0.25s, border-color 0.25s, background 0.25s;
+  animation: trackIn 0.6s var(--ease-out) both;
+}
+.track-card:nth-child(2) { animation-delay: 0.08s; }
+.track-card:nth-child(3) { animation-delay: 0.16s; }
+@keyframes trackIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.track-card::before { content: ''; position: absolute; top: 0; right: 18px; left: 18px; height: 4px; border-radius: 0 0 4px 4px; background: var(--c); opacity: 0.55; transition: opacity 0.25s; }
+.track-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(26,41,91,0.1); }
+.track-card.active { border-color: var(--c); background: #fff; box-shadow: 0 10px 28px rgba(26,41,91,0.12), 0 0 0 4px color-mix(in srgb, var(--c) 18%, transparent); }
+.track-card.active::before { opacity: 1; }
+.track-ic { width: 44px; height: 44px; border-radius: 14px; display: flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--c) 18%, #fff); color: var(--header-blue); transition: transform 0.3s var(--spring); }
+.track-card:hover .track-ic, .track-card.active .track-ic { transform: rotate(-6deg) scale(1.06); }
+.track-ic [data-lucide] { width: 22px; height: 22px; }
+.track-txt { display: flex; flex-direction: column; gap: 2px; }
+.track-lab { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; color: rgba(26,41,91,0.55); }
+.track-txt strong { font-family: 'Rubik', sans-serif; font-size: 1.12rem; font-weight: 800; color: var(--header-blue); line-height: 1.3; }
+.track-txt small { font-size: 0.8rem; color: #5b6275; line-height: 1.45; }
+.track-check { position: absolute; top: 14px; left: 14px; width: 22px; height: 22px; padding: 3px; border-radius: 50%; background: var(--c); color: var(--header-blue); stroke-width: 3; opacity: 0; transform: scale(0.4); transition: opacity 0.2s, transform 0.3s var(--spring); }
+.track-card.active .track-check { opacity: 1; transform: scale(1); }
+.track-panels { margin-top: 0.4rem; }
+.track-panel { display: none; }
+.track-panel.active { display: block; animation: trackIn 0.45s var(--ease-out); }
+.track-panel > .reveal:first-child::before {
+  content: ''; display: block; margin: 0 auto 0.9rem; width: 170px; height: 46px;
+  background: no-repeat center / contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 46' fill='none' stroke='%239AA3B8' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M85 4 C70 18, 100 26, 85 40' stroke-dasharray='4 5'/%3E%3Cpath d='M78 34 L85 42 L92 34'/%3E%3C/svg%3E");
+}
+.track-panel .pg-anim { height: 96px; }
+
+@media (max-width: 860px) {
+  .track-picker { grid-template-columns: 1fr; gap: 0.6rem; }
+  .track-card { flex-direction: row; align-items: center; padding: 0.9rem 1rem; }
+  .track-txt small { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .track-card, .track-panel.active { animation: none; }
+  .track-card, .track-ic, .track-check { transition: none; }
+}
+
+/* ===== השראה מלומדת Grok Bot: מסגרות מקווקוות עדינות, מספרים במתאר ורוד ===== */
+body, .app {
+  background-color: #F8F9FC;
+  background-image: radial-gradient(circle at 1px 1px, rgba(26,41,91,0.16) 1.2px, transparent 1.6px);
+}
+:root { --dash: 2px dashed #C9CFE2; }
+.settings-item, .quiz-card, .sort-game, .track-card { border: var(--dash); }
+.track-card.active { border: 2px dashed var(--c); }
+.step-card { border: var(--dash); border-right-style: solid; border-right-width: 3px; }
+.step-card.user { border-right-color: var(--strong-pink); }
+.step-card.info { border-right-color: var(--amber); }
+.callout.tip { background: #fff; border: var(--dash); border-right: 3px solid var(--amber); color: #1d2a4d; }
+.callout.warning { background: var(--header-blue); color: #fff; border: none; box-shadow: inset 0 0 0 4px var(--header-blue), inset 0 0 0 5.5px rgba(255,255,255,0.35); border-right: 4px solid var(--strong-pink); }
+.callout.warning strong { color: var(--secondary); }
+/* מספר משימה במתאר ורוד, כמו בלומדת Grok Bot */
+.settings-icon { background: transparent; width: 38px; }
+.settings-icon .task-n { font-family: 'Rubik', sans-serif; font-weight: 900; font-size: 1.7rem; color: transparent; -webkit-text-stroke: 1.6px var(--strong-pink); line-height: 1; }
+.track-lab { color: var(--strong-pink); }
