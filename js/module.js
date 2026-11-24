@@ -17,3 +17,6 @@ function glFilter(v){v=v.trim();let n=0;document.querySelectorAll('.gl-card').fo
 document.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('.flip-card,.concept-card')){e.preventDefault();e.target.click();}});
 /* בחירת מסלול בעמוד המשימות */
 function pickTrack(b,i){const st=b.closest('.step');st.querySelectorAll('.track-card').forEach((c,k)=>{c.classList.toggle('active',k===i);c.setAttribute('aria-pressed',k===i);});st.querySelectorAll('.track-panel').forEach((p,k)=>p.classList.toggle('active',k===i));st.querySelectorAll('.track-panel.active .reveal').forEach(r=>r.classList.add('visible'));if(window.lucide)lucide.createIcons();}
+/* מעבר בין משימות בתוך מסלול: מוגבל למסלול הפעיל */
+function pickTask(b,i){const sc=b.closest('.track-panel')||b.closest('.step');sc.querySelectorAll('.pick-card').forEach((c,k)=>c.classList.toggle('active',k===i));sc.querySelectorAll('.pick-panel').forEach((p,k)=>p.classList.toggle('active',k===i));}
+function taskStep(b,dir){const sc=b.closest('.track-panel');const cards=[...sc.querySelectorAll('.pick-card')];const i=cards.findIndex(c=>c.classList.contains('active'))+dir;if(i<0||i>=cards.length)return;pickTask(cards[i],i);sc.querySelector('.pick-fan').scrollIntoView({behavior:'smooth',block:'center'});}

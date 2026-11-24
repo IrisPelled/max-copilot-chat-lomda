@@ -176,3 +176,13 @@ body, .app {
   .lv-ladder::before { right: 12px; }
 }
 .track-panel .settings-item.open .settings-item-panel { max-height: 5000px; }
+
+/* ===== מעבר בין משימות בתוך מסלול ===== */
+.track-panel .pick-fan { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
+.track-panel .pick-panel { border: var(--dash); box-shadow: 0 4px 18px rgba(26,41,91,0.06); }
+.task-hint { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 600; color: var(--header-blue); background: #fff; border: var(--dash); border-right: 3px solid var(--amber); border-radius: 12px; padding: 0.6rem 0.9rem; margin: 0 0 1rem; }
+.task-nav { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; margin-top: 1.3rem; padding-top: 1rem; border-top: 2px dashed #C9CFE2; flex-wrap: wrap; }
+.task-nav-btn { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; padding: 9px 18px; border-radius: 999px; font-weight: 700; font-size: 0.88rem; background: #fff; color: var(--header-blue); border: 1.5px solid rgba(26,41,91,0.25); transition: transform 0.2s var(--spring), box-shadow 0.2s; }
+.task-nav-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(26,41,91,0.12); }
+.task-nav-btn.primary { background: var(--header-blue); color: #fff; border-color: var(--header-blue); }
+.task-nav-done { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--strong-pink); }
